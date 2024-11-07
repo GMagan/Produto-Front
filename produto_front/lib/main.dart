@@ -17,8 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Estoque',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 255, 0, 0)),
-        scaffoldBackgroundColor: Color.fromARGB(0, 29, 26, 26),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(0, 0, 0, 0)),
       ),
       home: const Dashboard(title: 'Catalogo de produtos'),
     );
@@ -83,7 +82,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 152, 0, 198),
+        backgroundColor: const Color.fromARGB(255, 167, 0, 61),
         title: Text(widget.title),
       ),
       body: isLoadingData
@@ -194,7 +193,7 @@ class _produtosDetailPageState extends State<produtosDetailPage> {
         title: const Text('Detalhes do produto'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -226,14 +225,17 @@ class _produtosDetailPageState extends State<produtosDetailPage> {
               children: [
                 ElevatedButton(
                   onPressed: updateItem,
-                  child: const Text('Salvar'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white
+                  ),
+                  child: const Text('Salvar', style: TextStyle(color: Colors.black)),
                 ),
                 ElevatedButton(
                   onPressed: deleteItem,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red
+                    backgroundColor: Colors.redAccent
                   ),
-                  child: const Text('Deletar'),
+                  child: const Text('Deletar', style: TextStyle(color: Colors.black)),
                 ),
               ],
             ),
@@ -354,7 +356,7 @@ class _produtosCreationPageState extends State<produtosCreationPage> {
                     );
                   });
                 },
-                child: const Text('Salvar'),
+                child: const Text('Salvar', style: TextStyle(color: Colors.black)),
               ),
             ),
           ],
